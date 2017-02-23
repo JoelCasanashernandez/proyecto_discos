@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,7 +20,9 @@
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/apple-touch-icon-114-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72-precomposed.png">
     <link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png">
-</head><!--/head-->
+    <link rel="stylesheet" href="css/customStyle.css">
+</head>
+<!--/head-->
 
 <body data-spy="scroll" data-target="#navbar" data-offset="0">
     <header id="header" role="banner">
@@ -42,7 +45,8 @@
                 </div>
             </div>
         </div>
-    </header><!--/#header-->
+    </header>
+    <!--/#header-->
 
     <section id="main-slider" class="carousel">
         <div class="carousel-inner">
@@ -54,60 +58,150 @@
                         <p class="lead">¡Valora tus discos favoritos y comprueba cuáles son los mejores para el resto!</p>
                     </div>
                 </div>
-            </div><!--/.item-->
-        </div><!--/.carousel-inner-->
-    </section><!--/#main-slider-->
+            </div>
+            <!--/.item-->
+        </div>
+        <!--/.carousel-inner-->
+    </section>
+    <!--/#main-slider-->
 
     <section id="services">
         <div class="container">
             <div class="box first">
                 <div class="row">
-                    <div class="col-md-4 col-sm-6">
+                    <div class="col-md-3 col-sm-6">
                         <div class="center">
-                            <i class="icon-apple icon-md icon-color1"></i>
-                            <h4>iOS development</h4>
-                            <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae.</p>
+                            <h4>Formulario Búsqueda</h4>
+                            <form id="searchForm">
+                                <label for="nombreIN">Nombre:</label>
+                                <input id="nombreIN" type="text" name="nombre">
+                                <br>
+                                <label for="artistaIN">Artista:</label>
+                                <input id="artistaIN" type="text" name="artista">
+                                <br>
+                                <label for="tipoIN">Tipo:</label>
+                                <select id="tipoIN" name="tipo">
+					                        <option>--Selecciona una opción--</option>
+					                         <option>Rock</option>
+					                         <option>Pop</option>
+				                        </select>
+                            </form>
                         </div>
-                    </div><!--/.col-md-4-->
-                    <div class="col-md-4 col-sm-6">
+                    </div>
+                    <!--/.col-md-4-->
+                    <div class="col-md-6 col-sm-6">
                         <div class="center">
-                            <i class="icon-android icon-md icon-color2"></i>
-                            <h4>Android development</h4>
-                            <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae.</p>
+                          <h4>Mostrar los Discos</h4>
+                          <div id="resultsDiv">
+                        			<div class="disco">
+                        				Nombre <br>
+                        				Artista <br>
+                        				Año <br>
+                        				***** <br>
+                        			</div>
+                        			<div class="disco">
+                        				Nombre <br>
+                        				Artista <br>
+                        				Año <br>
+                        				***** <br>
+                        			</div>
+                        			<div class="disco">
+                        				Nombre <br>
+                        				Artista <br>
+                        				Año <br>
+                        				***** <br>
+                        			</div>
+                        			<div class="disco">
+                        				Nombre <br>
+                        				Artista <br>
+                        				Año <br>
+                        				***** <br>
+                        			</div>
+                        			<div class="disco">
+                        				Nombre <br>
+                        				Artista <br>
+                        				Año <br>
+                        				***** <br>
+                        			</div>
+                        			<div class="disco">
+                        				Nombre <br>
+                        				Artista <br>
+                        				Año <br>
+                        				***** <br>
+                        			</div>
+                        			<div class="disco">
+                        				Nombre <br>
+                        				Artista <br>
+                        				Año <br>
+                        				***** <br>
+                        			</div>
+                        			<div class="disco">
+                        				Nombre <br>
+                        				Artista <br>
+                        				Año <br>
+                        				***** <br>
+                        			</div>
+                        			<div class="disco">
+                        				Nombre <br>
+                        				Artista <br>
+                        				Año <br>
+                        				***** <br>
+                        			</div>
+                        			<div class="disco">
+                        				Nombre <br>
+                        				Artista <br>
+                        				Año <br>
+                        				***** <br>
+                        			</div>
+                        			<div class="disco">
+                        				Nombre <br>
+                        				Artista <br>
+                        				Año <br>
+                        				***** <br>
+                        			</div>
+                        			<div class="disco">
+                        				Nombre <br>
+                        				Artista <br>
+                        				Año <br>
+                        				***** <br>
+                        			</div>
+                        			<div class="disco">
+                        				Nombre <br>
+                        				Artista <br>
+                        				Año <br>
+                        				***** <br>
+                        			</div>
+                        			<div class="disco">
+                        				Nombre <br>
+                        				Artista <br>
+                        				Año <br>
+                        				***** <br>
+                        			</div>
+                        			<div class="disco">
+                        				Nombre <br>
+                        				Artista <br>
+                        				Año <br>
+                        				***** <br>
+                        			</div>
+                      		</div>
                         </div>
-                    </div><!--/.col-md-4-->
-                    <div class="col-md-4 col-sm-6">
+                    </div>
+                    <!--/.col-md-4-->
+                    <div class="col-md-3 col-sm-6">
                         <div class="center">
-                            <i class="icon-windows icon-md icon-color3"></i>
-                            <h4>Windows Phone development</h4>
-                            <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae.</p>
+                            <h4>Banner de publicidad</h4>
+                            <p>IMG Publicidad</p>
                         </div>
-                    </div><!--/.col-md-4-->
-                    <div class="col-md-4 col-sm-6">
-                        <div class="center">
-                            <i class="icon-html5 icon-md icon-color4"></i>
-                            <h4>Ruby on Rails development</h4>
-                            <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae.</p>
-                        </div>
-                    </div><!--/.col-md-4-->
-                    <div class="col-md-4 col-sm-6">
-                        <div class="center">
-                            <i class="icon-css3 icon-md icon-color5"></i>
-                            <h4>Javascript development</h4>
-                            <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae.</p>
-                        </div>
-                    </div><!--/.col-md-4-->
-                    <div class="col-md-4 col-sm-6">
-                        <div class="center">
-                            <i class="icon-thumbs-up icon-md icon-color6"></i>
-                            <h4>Responsive web design</h4>
-                            <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae.</p>
-                        </div>
-                    </div><!--/.col-md-4-->
-                </div><!--/.row-->
-            </div><!--/.box-->
-        </div><!--/.container-->
-    </section><!--/#services-->
+                    </div>
+                    <!--/.col-md-4-->
+                </div>
+                <!--/.row-->
+            </div>
+            <!--/.box-->
+        </div>
+        <!--/.container-->
+    </section>
+    <!--/#services-->
 
     <section id="portfolio">
         <div class="container">
@@ -115,13 +209,15 @@
                 <div class="center gap">
                     <h2>Portfolio</h2>
                     <p class="lead">Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac<br>turpis egestas. Vestibulum tortor quam, feugiat vitae.</p>
-                </div><!--/.center-->
+                </div>
+                <!--/.center-->
                 <ul class="portfolio-filter">
                     <li><a class="btn btn-primary active" href="#" data-filter="*">All</a></li>
                     <li><a class="btn btn-primary" href="#" data-filter=".bootstrap">Bootstrap</a></li>
                     <li><a class="btn btn-primary" href="#" data-filter=".html">HTML</a></li>
                     <li><a class="btn btn-primary" href="#" data-filter=".wordpress">Wordpress</a></li>
-                </ul><!--/#portfolio-filter-->
+                </ul>
+                <!--/#portfolio-filter-->
                 <ul class="portfolio-items col-4">
                     <li class="portfolio-item apps">
                         <div class="item-inner">
@@ -133,7 +229,8 @@
                             </div>
                             <h5>Lorem ipsum dolor sit amet</h5>
                         </div>
-                    </li><!--/.portfolio-item-->
+                    </li>
+                    <!--/.portfolio-item-->
                     <li class="portfolio-item joomla bootstrap">
                         <div class="item-inner">
                             <div class="portfolio-image">
@@ -144,7 +241,8 @@
                             </div>
                             <h5>Lorem ipsum dolor sit amet</h5>
                         </div>
-                    </li><!--/.portfolio-item-->
+                    </li>
+                    <!--/.portfolio-item-->
                     <li class="portfolio-item bootstrap wordpress">
                         <div class="item-inner">
                             <div class="portfolio-image">
@@ -155,7 +253,8 @@
                             </div>
                             <h5>Lorem ipsum dolor sit amet</h5>
                         </div>
-                    </li><!--/.portfolio-item-->
+                    </li>
+                    <!--/.portfolio-item-->
                     <li class="portfolio-item joomla wordpress apps">
                         <div class="item-inner">
                             <div class="portfolio-image">
@@ -166,7 +265,8 @@
                             </div>
                             <h5>Lorem ipsum dolor sit amet</h5>
                         </div>
-                    </li><!--/.portfolio-item-->
+                    </li>
+                    <!--/.portfolio-item-->
                     <li class="portfolio-item joomla html">
                         <div class="item-inner">
                             <div class="portfolio-image">
@@ -177,7 +277,8 @@
                             </div>
                             <h5>Lorem ipsum dolor sit amet</h5>
                         </div>
-                    </li><!--/.portfolio-item-->
+                    </li>
+                    <!--/.portfolio-item-->
                     <li class="portfolio-item wordpress html">
                         <div class="item-inner">
                             <div class="portfolio-image">
@@ -188,7 +289,8 @@
                             </div>
                             <h5>Lorem ipsum dolor sit amet</h5>
                         </div>
-                    </li><!--/.portfolio-item-->
+                    </li>
+                    <!--/.portfolio-item-->
                     <li class="portfolio-item joomla html">
                         <div class="item-inner">
                             <div class="portfolio-image">
@@ -199,7 +301,8 @@
                             </div>
                             <h5>Lorem ipsum dolor sit amet</h5>
                         </div>
-                    </li><!--/.portfolio-item-->
+                    </li>
+                    <!--/.portfolio-item-->
                     <li class="portfolio-item wordpress html">
                         <div class="item-inner">
                             <div class="portfolio-image">
@@ -210,11 +313,15 @@
                             </div>
                             <h5>Lorem ipsum dolor sit amet</h5>
                         </div>
-                    </li><!--/.portfolio-item-->
+                    </li>
+                    <!--/.portfolio-item-->
                 </ul>
-            </div><!--/.box-->
-        </div><!--/.container-->
-    </section><!--/#portfolio-->
+            </div>
+            <!--/.box-->
+        </div>
+        <!--/.container-->
+    </section>
+    <!--/#portfolio-->
 
     <footer id="footer">
         <div class="container">
@@ -227,7 +334,8 @@
                 </div>
             </div>
         </div>
-    </footer><!--/#footer-->
+    </footer>
+    <!--/#footer-->
 
     <script src="js/jquery.js"></script>
     <script src="js/bootstrap.min.js"></script>
@@ -235,4 +343,5 @@
     <script src="js/jquery.prettyPhoto.js"></script>
     <script src="js/main.js"></script>
 </body>
+
 </html>

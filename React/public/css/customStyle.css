@@ -1,12 +1,9 @@
-#stats{
-	width: 100%;
+#containerData{
+	display: flex;
 }
-#resultsDiv{
-	height: 350px;
-	overflow: auto;
-	flex-grow: 2;
-	text-align: left;
+#dataDiv{
+	flex-grow: 3;
 }
-#searchDiv, #publicidad{
+#publicidad{
 	flex-grow: 1;
 }

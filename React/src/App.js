@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 
 const list = [
@@ -77,7 +76,7 @@ const Search = ({listaTipos, onChangeTitulo, onChangeArtista, onChangeAnio, onCh
     </form>
   );
 }
-const DataDisplay = ({lista,searchObject}) => {
+const DataDisplay = ({lista,searchObject,puntuarEvent}) => {
   var list = lista.filter(isSearchedTitulo(searchObject.tituloValue));
   list = list.filter(isSearchedArtista(searchObject.artistaValue));
   list = list.filter(isSearchedAnio(searchObject.anioValue));
@@ -90,12 +89,14 @@ const DataDisplay = ({lista,searchObject}) => {
         <span>{item.artista}</span><br />
         <span>{item.anio}</span><br />
         <span>{item.tipo}</span><br />
+        <button onClick={puntuarEvent} value={item.id}>Puntuar</button> <br />
         ---------------------------------
       </div>
     )}
     </div>
   );
 }
+
 
 class App extends Component {
   constructor(props){
@@ -133,6 +134,10 @@ class App extends Component {
     item.tipoValue = event.target.value;
     this.setState({searchObject: item});
   }
+  puntuarEvent(event){
+    console.log(event.target.value);
+    window.puntuar(event.target.value);
+  }
   render() {
     return (
       <div>
@@ -140,7 +145,7 @@ class App extends Component {
       <Search onChangeTitulo={this.onChangeTitulo} onChangeArtista={this.onChangeArtista} onChangeAnio={this.onChangeAnio} onChangeTipo={this.onChangeTipo}/>
       </div>
       <div style={dataStyle}>
-      <DataDisplay lista={list} searchObject={this.state.searchObject} />
+      <DataDisplay lista={list} searchObject={this.state.searchObject} puntuarEvent={this.puntuarEvent} />
       </div>
       </div>
     );

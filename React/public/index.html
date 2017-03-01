@@ -10,7 +10,9 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/font-awesome.min.css" rel="stylesheet">
     <link href="css/prettyPhoto.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/jquery-ui.css">
     <link href="css/main.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/rating.css">
     <!--[if lt IE 9]>
     <script src="js/html5shiv.js"></script>
     <script src="js/respond.min.js"></script>
@@ -218,12 +220,28 @@
         </div>
     </footer>
     <!--/#footer-->
-
+    <div id="dialogDiv">
+        Título: <span id="tituloD" ></span><br />
+        Artista: <span id="artistaD" ></span><br />
+        Año: <span id="anioD" ></span><br />
+        Tipo: <span id="tipoD" ></span><br /><div class="rating">
+    <input type="radio" id="star5" name="rating" value="5" /><label for="star5" title="Rocks!">5 stars</label>
+    <input type="radio" id="star4" name="rating" value="4" /><label for="star4" title="Pretty good">4 stars</label>
+    <input type="radio" id="star3" name="rating" value="3" /><label for="star3" title="Meh">3 stars</label>
+    <input type="radio" id="star2" name="rating" value="2" /><label for="star2" title="Kinda bad">2 stars</label>
+    <input type="radio" id="star1" name="rating" value="1" checked="checked"/><label for="star1" title="Sucks big time">1 star</label>
+</div><br>
+    </div>
     <script src="js/jquery.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery-ui.js"></script>
     <script src="js/jquery.isotope.min.js"></script>
     <script src="js/jquery.prettyPhoto.js"></script>
     <script src="js/main.js"></script>
+    <script src="js/rating.min.js"></script>
+    <script src="js/custom.js"></script>
+
+    </script>
 </body>
 
 </html>

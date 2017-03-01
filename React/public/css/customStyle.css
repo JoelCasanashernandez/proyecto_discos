@@ -7,3 +7,6 @@
 #publicidad{
 	flex-grow: 1;
 }
+#dialogDiv{
+	display: none;
+}

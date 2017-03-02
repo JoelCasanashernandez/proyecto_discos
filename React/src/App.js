@@ -29,20 +29,6 @@ const listTipo = [
   "Pop","Rock"
 ];
 
-const style = {
-  width: '40%',
-  boxSizing: 'border-box',
-  float: 'left',
-}
-const dataStyle = {
-  width: '60%',
-  height: '300px',
-  boxSizing: 'border-box',
-  float: 'left',
-  textAlign: 'center',
-  overflow: 'auto',
-}
-
 for(var i=1950;i<2018;i++){
   listYear.push(i);
 }
@@ -141,10 +127,10 @@ class App extends Component {
   render() {
     return (
       <div>
-      <div style={style}>
+      <div id="search">
       <Search onChangeTitulo={this.onChangeTitulo} onChangeArtista={this.onChangeArtista} onChangeAnio={this.onChangeAnio} onChangeTipo={this.onChangeTipo}/>
       </div>
-      <div style={dataStyle}>
+      <div id="datadisplay">
       <DataDisplay lista={list} searchObject={this.state.searchObject} puntuarEvent={this.puntuarEvent} />
       </div>
       </div>

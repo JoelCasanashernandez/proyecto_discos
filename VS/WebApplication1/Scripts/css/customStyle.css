@@ -1,0 +1,82 @@
+#containerData{
+	display: flex;
+}
+#dataDiv{
+	flex-grow: 4;
+}
+#publicidad{
+	flex-grow: 1;
+}
+#dialogDiv{
+	display: none;
+    font-size: large;
+}
+#horizontal{
+	height: 200px;
+}
+#datadisplay{
+  width: 60%;
+  height: 600px;
+  box-sizing: border-box;
+  float: left;
+  text-align: left;
+  padding-left: 20px;
+  overflow: auto;
+}
+.tituloIcon{
+    float: left;
+    width: 33px;
+    height: 37px;
+    background: url("./../images/icons.png") -4px -10px;
+}
+.artistaIcon{
+    float: left;
+    width: 35px;
+    height: 37px;
+    background: url("./../images/icons.png") -42px -10px;
+}
+.anioIcon{
+    float: left;
+    width: 35px;
+    height: 37px;
+    background: url("./../images/icons.png") -80px -10px;
+}
+.tipoIcon{
+    float: left;
+    width: 35px;
+    height: 37px;
+    background: url("./../images/icons.png") -118px -10px;
+}
+#search{
+  width: 40%;
+  box-sizing: border-box;
+  float: left;
+}
+#graphDiv{
+    width: 100%;
+    height: 500px;
+}
+
+@media only screen
+  and (max-device-width: 480px) {
+		.carousel-content{
+			color: black;
+		}
+		#containerData{
+			display:block;
+		}
+		#dataDiv, #publicidad{
+			width: 100%;
+		}
+		#datadisplay{
+			width: 100%;
+		  height: 300px;
+		  box-sizing: border-box;
+		  text-align: center;
+		  overflow: auto;
+		}
+		#search{
+			width: 100%;
+		  box-sizing: border-box;
+		}
+}

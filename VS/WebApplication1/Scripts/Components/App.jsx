@@ -25,6 +25,7 @@ var isSearchedAnio = searchTerm => (item) => !searchTerm ||
 var Search = ({listaTipo, onChangeTitulo, onChangeArtista, onChangeAnio, onChangeTipo}) => {
     return(
       <form>
+          <h3>Realiza tu búsqueda:</h3>
       <label for="searchTitulo" >Título:</label><input id="searchTitulo" type="text" onChange={onChangeTitulo} className="form form-control" /><br />
       <label for="searchArtista" >Artista: </label><input id="searchArtista" type="text" onChange={onChangeArtista} className="form form-control" /> <br />
       <label for="searchAnio">Año: </label><select id="searchAnio" className="form form-control" onChange={onChangeAnio}><option value="">-Cualquiera-</option>
@@ -40,7 +41,7 @@ var buttonStyle = {
     position: "relative",
     float: "right",
     marginRight: "20",
-    top: "-70"
+    top: "-30"
 }
 var dataStyle = {
     width: '80%',
@@ -96,7 +97,6 @@ var App = React.createClass( {
     this.setState({searchObject: item});
   },
   puntuarEvent:function(event){
-    console.log(event.target.value);
     window.puntuar(event.target.value);
   },
   render: function(){

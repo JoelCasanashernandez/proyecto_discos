@@ -3,45 +3,51 @@ var url = window.location.href;
 var arr = url.split("/");
 var requestURL = arr[0] + "//" + arr[2];
 
-function punctObject(item){
-  this.item = item;
+function puntuar(idBuscar) {
+    myPuntuacion = new puntuarObj(idBuscar);
 }
 
-function puntuar(idBuscar) {
-    idDisco = idBuscar;
+function puntuarObj(idBuscar) {
+    this.idBuscar = idBuscar;
+    this.dialog = null;
+    this.puntuar();
+}
 
+puntuarObj.prototype.puntuar = function() {
+    idDisco = this.idBuscar;
+    var that = this;
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
             console.log(JSON.parse(this.responseText));
             var dialogDiv = $("#dialogDiv");
-            rellenarDialog(dialogDiv, JSON.parse(this.responseText));
-            dialog = dialogDiv.dialog({
+            that.rellenarDialog(dialogDiv, JSON.parse(this.responseText));
+            that.dialog = dialogDiv.dialog({
                 modal: true,
                 buttons: {
                     "Puntuar": sendPuntuacion,
+                },
+                position: {
+                    my: "center",
+                    at: "center",
+                    of: window
                 }
             });
         }
     };
-    xhttp.open("GET", requestURL+"/api/Discoes/"+idBuscar, true);
+    xhttp.open("GET", requestURL+"/api/Discoes/"+this.idBuscar, true);
     xhttp.send();
     
 }
 
-function rellenarDialog(dialogDiv, item){
-  console.log("rellenar dialog");
-  console.log(item);
-  console.log(item.Titulo);
-  console.log(item.Interprete);
-  console.log(item.Agno);
+puntuarObj.prototype.rellenarDialog = function(dialogDiv, item){
   dialogDiv.find("#tituloD").html(item.Titulo);
   dialogDiv.find("#artistaD").html(item.Interprete.Interprete1);
   dialogDiv.find("#anioD").html(item.Agno);
 }
-function sendPuntuacion(){
+function sendPuntuacion() {
+    var that = this;
   var ratingValue = $("input[name='rating']:checked").val();
-  alert(ratingValue);
   var puntuacion = {
       Idcliente : null,
       iddisco : idDisco,
@@ -59,33 +65,36 @@ function sendPuntuacion(){
       dataType: 'json',
       crossdomain: true,
       success: function () {
-          alert("Puntuacion enviada");
+          myPuntuacion.dialog.dialog("close");
       },
       error: function(error){
-          alert("Error al enviar puntuación");
-          console.log(error.responseText);
+          alert("No se ha podido enviar la puntuación. Disculpe las molestias.");
       }
   });
 
-  dialog.dialog("close");
 }
 
 function crearGrafica(lista) {
-    console.log("Crear Gráfica");
-    console.log(lista);
+    myGraph = new graphObj(lista);
+}
+function graphObj(lista) {
+    this.lista = lista;
+    this.crearGrafica();
+}
+
+graphObj.prototype.crearGrafica = function() {
     grapDiv = $("#graphDiv");
     var listaGraph = [];
-    for (var i = 0; i < lista.length;i++){
+    for (var i = 0; i < this.lista.length;i++){
         var itemGraph = {
-            'titulo': lista[i].Titulo,
-            'puntuacion':calcularMedia(lista[i].Puntuacion),
+            'titulo': this.lista[i].Titulo,
+            'puntuacion': calcularMedia(this.lista[i].Puntuacion),
             'color': '#006699'
         };
         listaGraph.push(itemGraph);
     }
     
-    listaGraph = ordenarLista(listaGraph);
-    console.log(listaGraph);
+    listaGraph = this.ordenarLista(listaGraph);
     var chart = AmCharts.makeChart("graphDiv", {
         "theme": "light",
         "type": "serial",
@@ -122,7 +131,7 @@ function crearGrafica(lista) {
     });
 }
 
-function ordenarLista(lista){
+graphObj.prototype.ordenarLista = function(lista){
     lista.sort(function (a, b) {
         if (a.puntuacion < b.puntuacion) {
             return -1;

@@ -1,5 +1,4 @@
-﻿
-@model WebApplication1.Cliente
+﻿@model WebApplication1.Cliente
 
 <!DOCTYPE html>
 
@@ -50,30 +49,67 @@
     <section id="services">
         <div class="container">
             <div class="box first">
-                <div id="containerData">
-                     @using (Html.BeginForm("Login","Account"))
-                     {
+                <div class="row" id="containerData">
+                    @using (Html.BeginForm("Register","Account"))
+                    {
                         @Html.AntiForgeryToken()
 
-                        <div class="form-horizontal col-md-12">
+
+                        <div class="form-horizontal">
+                            <h4>Cliente</h4>
+                            <hr />
                             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                            @if (ViewBag.Message != null)
+                            {
+                                <div class="form-group">
+                                    <div class="col-md-10">@ViewBag.Message</div>
+                                </div>
+                            }
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.id, htmlAttributes: new { @class = "control-label col-md-2" })
+
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Nombre, htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.Nombre, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.Nombre, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
                             <div class="form-group">
                                 @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
-                                <div class="col-md-3">
+                                <div class="col-md-10">
                                     @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
                                     @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
                                 </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.FechaNacimiento, htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.FechaNacimiento, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.FechaNacimiento, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
                                 @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-md-2" })
-                                <div class="col-md-3">
+                                <div class="col-md-10">
                                     @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } })
                                     @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
                                 </div>
-                                <div class="col-md-2">
-                                    <input type="submit" value="Login" class="btn btn-default" />
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-md-offset-2 col-md-10">
+                                    <input type="submit" value="Create" class="btn btn-default" />
                                 </div>
                             </div>
                         </div>
-                     }
+                    }
+                    <!--/.col-md-4-->
                 </div>
                 <!--/.row-->
             </div>
@@ -93,7 +129,7 @@
                     <p class="lead">Comprueba cuáles son los discos que más gustan a la gente (:D) y los que menos (D:).</p>
                 </div>
                 <!--/.center-->
-                
+
             </div>
             <!--/.box-->
         </div>

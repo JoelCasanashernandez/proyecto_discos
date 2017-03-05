@@ -6,11 +6,16 @@ using System.Web.Mvc;
 
 namespace WebApplication1.Controllers
 {
-    [Authorize]
-    public class InicioController : Controller
+    public class RegisterController : Controller
     {
-        // GET: Inicio
+        // GET: Register
+        [HttpGet]
         public ActionResult Index()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult Index(Cliente cliente)
         {
             return View();
         }

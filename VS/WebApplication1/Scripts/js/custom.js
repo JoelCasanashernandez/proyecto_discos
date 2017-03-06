@@ -1,4 +1,6 @@
+//Disco a puntuar
 var idDisco;
+//URL del servidor para realizar la puntuación
 var url = window.location.href;
 var arr = url.split("/");
 var requestURL = arr[0] + "//" + arr[2];
@@ -6,13 +8,14 @@ var requestURL = arr[0] + "//" + arr[2];
 function puntuar(idBuscar) {
     myPuntuacion = new puntuarObj(idBuscar);
 }
-
+//Objeto de puntuación
 function puntuarObj(idBuscar) {
     this.idBuscar = idBuscar;
     this.dialog = null;
     this.puntuar();
 }
-
+//Realizar la búsqueda de disco por ID al servidor
+//Crear cuadro de diálogo de puntuación
 puntuarObj.prototype.puntuar = function() {
     idDisco = this.idBuscar;
     var that = this;
@@ -45,6 +48,7 @@ puntuarObj.prototype.rellenarDialog = function(dialogDiv, item){
   dialogDiv.find("#artistaD").html(item.Interprete.Interprete1);
   dialogDiv.find("#anioD").html(item.Agno);
 }
+//Enviar la puntuación al servidor
 function sendPuntuacion() {
     var that = this;
   var ratingValue = $("input[name='rating']:checked").val();
@@ -74,6 +78,7 @@ function sendPuntuacion() {
   });
 
 }
+//
 function getIdCliente(cname) {
     var name = cname + "=";
     var decodedCookie = decodeURIComponent(document.cookie);
@@ -89,8 +94,8 @@ function getIdCliente(cname) {
     }
     return "";
 }
-function crearToastSuccess() {
 
+function crearToastSuccess() {
     toastr.options = {
         "closeButton": true,
         "debug": false,
@@ -111,14 +116,18 @@ function crearToastSuccess() {
     toastr.info("Puntuacion enviada correctamente! muchas gracias!");
 }
 
+// Crear Gráfica de puntuaciones
 function crearGrafica(lista) {
     myGraph = new graphObj(lista);
 }
+//Objeto para crear la gráfica
+//La lista que se le pasa es la lista genérica (desde react). 
+//El objeto se encarga de realizar las medias y ordenar.
 function graphObj(lista) {
     this.lista = lista;
     this.crearGrafica();
 }
-
+//Crear gráfica vía amCharts
 graphObj.prototype.crearGrafica = function() {
     grapDiv = $("#graphDiv");
     var listaGraph = [];
@@ -193,7 +202,7 @@ function calcularMedia(listaPuntuaciones) {
     }
     
 }
-
+//Crear el teclado virtual y aleatorio para introducir el password.
 function crearTecladoVirtual() {
     var inputPass = document.getElementById("Password");
     inputPass.setAttribute("onKeyPress","return false");
@@ -211,7 +220,8 @@ function crearTecladoVirtual() {
             filaTeclado.appendChild(nodoButton);
     }
 }
+//Solo permitir que se escriban 5 números en el campo de contraseña.
 function escribirTecladoVirtual(boton) {
     var passInput = document.getElementById("Password");
-    if (passInput.value.length < 5) passInput.value += boton.value;
+    passInput.value += boton.value;
 }

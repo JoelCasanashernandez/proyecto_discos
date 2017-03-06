@@ -3,6 +3,7 @@ var url = window.location.href;
 var arr = url.split("/");
 var requestURL = arr[0] + "//" + arr[2];
 
+//Objeto de búsqueda que se irá actualizando
 const searchObject ={
         tituloValue: "",
         artistaValue: "",
@@ -13,7 +14,7 @@ const listYear = [];
 for(var i=1950;i<2018;i++){
     listYear.push(i);
 }
-
+//Funciones de filtro para la lista.
 var isSearchedTitulo = searchTerm => (item) => !searchTerm ||
   item.Titulo.toLocaleLowerCase().includes(searchTerm.toLocaleLowerCase());
 
@@ -23,8 +24,9 @@ var isSearchedArtista = searchTerm => (item) => !searchTerm ||
 var isSearchedAnio = searchTerm => (item) => !searchTerm ||
   item.Agno==searchTerm;
 
-
-var Search = ({listaTipo, onChangeTitulo, onChangeArtista, onChangeAnio, onChangeTipo}) => {
+//Componente -> formulario de búsqueda.
+//Params: funciones de actualización de lista.
+var Search = ({onChangeTitulo, onChangeArtista, onChangeAnio}) => {
     return(
       <form>
           <h3>Realiza tu búsqueda:</h3>
@@ -49,13 +51,13 @@ var dataStyle = {
     width: '80%',
     margin: "0 auto",
 }
-
+//Componente -> mostrar la lista de discos.
+//Se le pasa la lista completa y realiza automáticamente las filtraciones.
 var DataDisplay = ({lista,searchObject,puntuarEvent}) => {
     console.log(lista);
     var list = lista.filter(isSearchedTitulo(searchObject.tituloValue));
     list = list.filter(isSearchedArtista(searchObject.artistaValue));
     list = list.filter(isSearchedAnio(searchObject.anioValue));
-  
   return (
     <div>
     { list.map(item =>
@@ -71,7 +73,9 @@ var DataDisplay = ({lista,searchObject,puntuarEvent}) => {
   );
 }
 
-
+//Main component
+//Se encarga de realizar la conexión a la base de datos.
+//Usado para crear los otros dos componentes.
 var App = React.createClass( {
     getInitialState: function(){
         var discosUrl = requestURL+"/api/Discoes";

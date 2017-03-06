@@ -313,6 +313,7 @@
     <Content Include="Scripts\css\main.css" />
     <Content Include="Scripts\css\prettyPhoto.css" />
     <Content Include="Scripts\css\rating.css" />
+    <Content Include="Scripts\css\toastr.css" />
     <Content Include="Scripts\fonts\fontawesome-webfont.svg" />
     <Content Include="Scripts\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Scripts\images\icons.png" />
@@ -388,6 +389,7 @@
     <Content Include="Scripts\js\main.js" />
     <Content Include="Scripts\js\register.js" />
     <Content Include="Scripts\js\respond.min.js" />
+    <Content Include="Scripts\js\toastr.min.js" />
     <Content Include="Scripts\react\react-dom-server.js" />
     <Content Include="Scripts\react\react-dom-server.min.js" />
     <Content Include="Scripts\react\react-dom.js" />
@@ -423,7 +425,6 @@
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\Components\App.jsx" />
-    <Content Include="Scripts\Components\HelloWorld.jsx" />
     <Content Include="Scripts\fonts\fontawesome-webfont.eot" />
     <Content Include="Scripts\fonts\fontawesome-webfont.ttf" />
     <Content Include="Scripts\fonts\fontawesome-webfont.woff" />

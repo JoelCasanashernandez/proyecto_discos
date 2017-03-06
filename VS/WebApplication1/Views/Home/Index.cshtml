@@ -59,17 +59,19 @@
                             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                             <div class="form-group">
                                 @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
-                                <div class="col-md-3">
+                                <div class="col-md-4">
                                     @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
                                     @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
                                 </div>
                                 @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-md-2" })
-                                <div class="col-md-3">
-                                    @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } })
+                                <div class="col-md-4" style="height: 34px;">
+                                    @Html.PasswordFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } })
                                     @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
                                 </div>
-                                <div class="col-md-2">
+                                <div class="col-md-6" style="text-align: center; margin-top: 10px;">
                                     <input type="submit" value="Login" class="btn btn-default" />
+                                </div>
+                                <div class="col-md-6" id="teclado" style="text-align:center;">
                                 </div>
                             </div>
                         </div>
@@ -115,16 +117,15 @@
     </footer>
     <!--/#footer-->
     <script src="~/Scripts/js/jquery.js"></script>
-    <script src="~/Scripts/react/react.js"></script>
-    <script src="~/Scripts/react/react-dom.js"></script>
     <script src="~/Scripts/js/bootstrap.min.js"></script>
     <script src="~/Scripts/js/jquery-ui.js"></script>
     <script src="~/Scripts/js/jquery.isotope.min.js"></script>
     <script src="~/Scripts/js/jquery.prettyPhoto.js"></script>
     <script src="~/Scripts/js/main.js"></script>
     <script src="~/Scripts/js/custom.js"></script>
-    <script src="~/Scripts/Components/App.jsx"></script>
-
+    <script>
+        crearTecladoVirtual();
+    </script>
 </body>
 
 </html>

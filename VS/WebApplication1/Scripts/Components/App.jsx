@@ -10,7 +10,9 @@ const searchObject ={
 }
 
 const listYear = [];
-
+for(var i=1950;i<2018;i++){
+    listYear.push(i);
+}
 
 var isSearchedTitulo = searchTerm => (item) => !searchTerm ||
   item.Titulo.toLocaleLowerCase().includes(searchTerm.toLocaleLowerCase());
@@ -19,7 +21,7 @@ var isSearchedArtista = searchTerm => (item) => !searchTerm ||
   item.Interprete.Interprete1.toLocaleLowerCase().includes(searchTerm.toLocaleLowerCase());
 
 var isSearchedAnio = searchTerm => (item) => !searchTerm ||
-  item.Agnio.toLocaleLowerCase().includes(searchTerm.toLocaleLowerCase());
+  item.Agno==searchTerm;
 
 
 var Search = ({listaTipo, onChangeTitulo, onChangeArtista, onChangeAnio, onChangeTipo}) => {
@@ -49,6 +51,7 @@ var dataStyle = {
 }
 
 var DataDisplay = ({lista,searchObject,puntuarEvent}) => {
+    console.log(lista);
     var list = lista.filter(isSearchedTitulo(searchObject.tituloValue));
     list = list.filter(isSearchedArtista(searchObject.artistaValue));
     list = list.filter(isSearchedAnio(searchObject.anioValue));
@@ -61,7 +64,7 @@ var DataDisplay = ({lista,searchObject,puntuarEvent}) => {
         <label>Artista:</label><span>       {item.Interprete.Interprete1}</span><br />
         <label>Año: </label><span>       {item.Agno}</span><br />
         <button style={buttonStyle} className="btn btn-primary" onClick={puntuarEvent} value={item.IdDisco} >Puntuar</button> <br />
-        ---------------------------------
+        <br />
       </div>
     )}
     </div>
@@ -73,7 +76,7 @@ var App = React.createClass( {
     getInitialState: function(){
         var discosUrl = requestURL+"/api/Discoes";
         fetch(discosUrl).then(response => response.json())
-        .then(result => this.rellenarLista(result));
+        .then(result => this.rellenarLista(result))
         return{searchObject: searchObject, result: []};
     },
     rellenarLista: function(resultado){

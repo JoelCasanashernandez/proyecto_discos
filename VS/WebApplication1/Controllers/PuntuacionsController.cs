@@ -42,7 +42,6 @@ namespace WebApplication1.Controllers
         [ResponseType(typeof(void))]
         public IHttpActionResult PutPuntuacion(int id, Puntuacion puntuacion)
         {
-            puntuacion.Idcliente = 1;
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);

@@ -41,6 +41,9 @@ namespace WebApplication1.Controllers
                     Session["id"] = usr.id.ToString();
                     Session["Email"] = usr.Email.ToString();
                     Session["Password"] = usr.Password.ToString();
+                    HttpCookie ck = new HttpCookie("id");
+                    ck.Value = usr.id.ToString();
+                    Response.SetCookie(ck);
                     return RedirectToAction("Index","Inicio");
 
                 }

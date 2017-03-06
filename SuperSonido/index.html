@@ -1,0 +1,96 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>SuperSonido</title>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<h1 style="color:#006699">SuperSonido</h1>
+					<h2 style="color:#0099ff">Tu base de datos de discos favorita</h2>
+				</section>
+        <section>
+          <h2 style="color:#0099ff">Inicia sesión de manera segura: </h2>
+          <img src="images/inse.png" alt="InicioSesion">
+        </section>
+        <section>
+          <h2>Busca los discos de tu artista favorito</h2>
+          <img src="images/bus1.png" alt="Busqueda">
+        </section>
+        <section>
+          <h2>O los que salieron el año que naciste</h2>
+          <img src="images/bus2.png" alt="Busqueda">
+        </section>
+				<section>
+          <h2 style="color:#0099ff">Hazle saber a la gente cuáles son los discos que más te gustan...</h2>
+          <img src="images/pos1.png" alt="Positivo1">
+          <img src="images/pos2.png" alt="Positivo2">
+        </section>
+        <section>
+          <h2 style="color:#0099ff">... y los que menos.</h2>
+          <img src="images/neg1.png" alt="Negativo1" style="float:left">
+          <img src="images/neg2.png" alt="Negativo2">
+        </section>
+        <section>
+          <h2 style="color:#0099ff">¿Los discos que más gustan?</h2>
+          <img src="images/gra0.png" alt="Grafica">
+        </section>
+        <section>
+          <h2 style="color:#0099ff">Y aprovecha nuestras estadísticas <strong>gratuitamente</strong></h2>
+          <img src="images/gra1.png" alt="Grafica">
+          <img src="images/gra2.png" alt="Grafica">
+        </section>
+        <section>
+          <h2 style="color:#0099ff">Demostración.</h2>
+          <video controls src="video/video.mp4"></video>
+        </section>
+				<section>
+					<h2 style="color:#0099ff">¿Quieres proponernos algo que añadir a nuestra web? No dudes en hacerlo!</h2>
+					<a href="https://github.com/JoelCasanashernandez/proyecto_discos">Aquí está alojado el proyecto!</a>
+				</section>
+				<section>
+					<h2 style="color:#0099ff">Muchas gracias por su tiempo.</h2>
+					<h3 style="color:#00ccff">Ana Rodríguez González</h3>
+					<h3 style="color:#00ccff">Joel Casañas Hernández</h3>
+				</section>
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				history: true,
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+	</body>
+</html>

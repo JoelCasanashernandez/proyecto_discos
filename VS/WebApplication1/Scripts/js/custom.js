@@ -49,7 +49,7 @@ function sendPuntuacion() {
     var that = this;
   var ratingValue = $("input[name='rating']:checked").val();
   var puntuacion = {
-      Idcliente : null,
+      Idcliente : getIdCliente("id"),
       iddisco : idDisco,
       puntuacion1 : ratingValue,
       Fecha : new Date(),
@@ -65,6 +65,7 @@ function sendPuntuacion() {
       dataType: 'json',
       crossdomain: true,
       success: function () {
+          crearToastSuccess();
           myPuntuacion.dialog.dialog("close");
       },
       error: function(error){
@@ -72,6 +73,42 @@ function sendPuntuacion() {
       }
   });
 
+}
+function getIdCliente(cname) {
+    var name = cname + "=";
+    var decodedCookie = decodeURIComponent(document.cookie);
+    var ca = decodedCookie.split(';');
+    for (var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "";
+}
+function crearToastSuccess() {
+
+    toastr.options = {
+        "closeButton": true,
+        "debug": false,
+        "newestOnTop": false,
+        "progressBar": true,
+        "positionClass": "toast-bottom-full-width",
+        "preventDuplicates": false,
+        "onclick": null,
+        "showDuration": "150",
+        "hideDuration": "1000",
+        "timeOut": "2500",
+        "extendedTimeOut": "1000",
+        "showEasing": "swing",
+        "hideEasing": "linear",
+        "showMethod": "fadeIn",
+        "hideMethod": "fadeOut"
+    }
+    toastr.info("Puntuacion enviada correctamente! muchas gracias!");
 }
 
 function crearGrafica(lista) {
@@ -155,4 +192,26 @@ function calcularMedia(listaPuntuaciones) {
         return 0;
     }
     
+}
+
+function crearTecladoVirtual() {
+    var inputPass = document.getElementById("Password");
+    inputPass.setAttribute("onKeyPress","return false");
+    var arrayClave = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
+    var id = "teclado";
+    var filaTeclado = document.getElementById(id);
+        for (var j = 0; j < 10; j++) {
+            var rndPos = Math.floor((Math.random() * arrayClave.length));
+            var nodoButton = document.createElement("INPUT");
+            var nodeValue = (arrayClave.splice(rndPos, 1));
+            nodoButton.setAttribute("type", "button");
+            nodoButton.setAttribute("value", nodeValue);
+            nodoButton.setAttribute("onClick", "escribirTecladoVirtual(this)");
+            nodoButton.setAttribute("class", "btn-info");
+            filaTeclado.appendChild(nodoButton);
+    }
+}
+function escribirTecladoVirtual(boton) {
+    var passInput = document.getElementById("Password");
+    if (passInput.value.length < 5) passInput.value += boton.value;
 }

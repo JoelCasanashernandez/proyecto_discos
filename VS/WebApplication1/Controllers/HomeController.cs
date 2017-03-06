@@ -11,11 +11,11 @@ namespace HelloWorldReact.Controllers
         // GET: Home
         public ActionResult Index()
         {
-            return View();
-        }
-
-        public ActionResult Home()
-        {
+            HttpRequestBase request = this.HttpContext.Request;
+            if (request.Cookies.Count!=0 && request.Cookies["id"].Value.ToString()!="")
+            {
+                return RedirectToAction("Index","Inicio");
+            }
             return View();
         }
     }

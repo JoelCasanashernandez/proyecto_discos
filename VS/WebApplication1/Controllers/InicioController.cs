@@ -10,9 +10,19 @@ namespace WebApplication1.Controllers
     public class InicioController : Controller
     {
         // GET: Inicio
+        [Authorize]
         public ActionResult Index()
         {
-            return View();
+            HttpRequestBase request = HttpContext.Request;
+            if (request.Cookies["id"].Value.ToString() != "")
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Index","Home");
+            }
+            
         }
     }
 }

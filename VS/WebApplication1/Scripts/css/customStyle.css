@@ -58,7 +58,7 @@
 }
 
 @media only screen
-  and (max-device-width: 480px) {
+  and (max-device-width: 500px) {
 		.carousel-content{
 			color: black;
 		}
